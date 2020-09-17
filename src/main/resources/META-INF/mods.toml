@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="[31,)"
+issueTrackerURL="https://github.com/dawnflyc/RandomStuff/issues"
+
+[[mods]]
+modId="randomstuff"
+version="${file.jarVersion}"
+displayName="RandomStuff"
+displayURL="https://github.com/dawnflyc/RandomStuff"
+logoFile="randomstuff.png"
+credits=""
+authors="dawnflyc"
+description='''
+'''
+[[dependencies.randomstuff]]
+    modId="forge"
+    mandatory=true
+    versionRange="[31,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.randomstuff]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.randomstuff]]
+    modId="kiwi"
+    mandatory=true
+    versionRange="[2.7,2.11)"
+    ordering="BEFORE"
+    side="BOTH"
