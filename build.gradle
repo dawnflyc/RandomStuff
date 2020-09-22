@@ -1,5 +1,7 @@
 buildscript {
     repositories {
+        maven { url = 'https://maven.aliyun.com/repository/central' }
+        maven { url = 'https://maven.aliyun.com/repository/jcenter' }
         maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
         mavenCentral()
@@ -91,7 +93,8 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.15.2-31.2.0'
 
     //kiwi
-    compile files("libs/Kiwi-1.15.2-2.8.3-deobf.jar")
+    //compile files("libs/Kiwi-1.15.2-2.8.3-deobf.jar")
+    compile fileTree(dir:'libs',includes:['*jar'])
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
@@ -125,6 +128,10 @@ jar {
             "Implementation-Vendor" :"dawnflyc",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
+    }
+
+    from {
+        files("libs/ProcessTree.jar").collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 
