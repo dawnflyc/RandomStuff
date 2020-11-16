@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "randomstuff:block/steel_furnace"
+      }
+    ]
+  }
+}

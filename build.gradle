@@ -131,7 +131,7 @@ jar {
     }
 
     from {
-        files("libs/ProcessTree.jar").collect { it.isDirectory() ? it : zipTree(it) }
+        files("libs/ProcessTree.jar").collect{ it.isDirectory() ? it : zipTree(it) }
     }
 }
 

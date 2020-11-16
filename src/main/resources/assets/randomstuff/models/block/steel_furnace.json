@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "randomstuff:block/machine",
+    "front": "randomstuff:block/steel_furnace",
+    "side": "randomstuff:block/machine"
+  }
+}
