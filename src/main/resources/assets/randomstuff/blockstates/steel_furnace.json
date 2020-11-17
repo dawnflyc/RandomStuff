@@ -1,9 +1,20 @@
 {
   "variants": {
-    "": [
-      {
-        "model": "randomstuff:block/steel_furnace"
-      }
-    ]
+    "facing=north": {
+      "model": "randomstuff:block/steel_furnace",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "randomstuff:block/steel_furnace",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "randomstuff:block/steel_furnace",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "randomstuff:block/steel_furnace",
+      "y": 270
+    }
   }
 }

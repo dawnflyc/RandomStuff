@@ -1,7 +1,6 @@
 package com.github.dawnflyc.randomstuff.common.util;
 
 import com.github.dawnflyc.randomstuff.common.block.SteelFurnace;
-import com.sun.istack.internal.NotNull;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 

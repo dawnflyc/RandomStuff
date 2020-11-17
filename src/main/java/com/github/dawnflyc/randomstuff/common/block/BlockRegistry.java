@@ -16,13 +16,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-@TreeScan(method = Block.class)
-public class BlockRegistry implements ITreeHandler<Block> {
+@TreeScan(method = IBlockRegistered.class)
+public class BlockRegistry implements ITreeHandler<IBlockRegistered> {
 
     @Override
-    public void handle(Result<Block> result) {
-        REG_BLOCKS.addAll(result.build());
-        System.out.println("自动注册");
+    public void handle(Result<IBlockRegistered> result) {
+        result.build().forEach(iBlockRegistered -> REG_BLOCKS.add(iBlockRegistered.getBlock()));
     }
 
     private static final Set<Block> REG_BLOCKS=new HashSet<>();
