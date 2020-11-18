@@ -1,38 +1,21 @@
 package com.github.dawnflyc.randomstuff.common.block;
 
 import com.github.dawnflyc.randomstuff.RandomStuff;
-import net.minecraft.block.Block;
+import com.github.dawnflyc.randomstuff.common.block.tileentity.SteelFurnaceTileEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.MinecartItem;
 import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.storage.loot.LootContext;
-import net.minecraft.world.storage.loot.LootParameter;
-import net.minecraft.world.storage.loot.LootParameters;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Direction;
+import net.minecraft.world.IBlockReader;
 
 import javax.annotation.Nullable;
-import java.util.List;
 
 public class SteelFurnace extends Machine implements IBlockRegistered {
 
-    public static SteelFurnace steelFurnace;
-
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+
+    public static SteelFurnace steelFurnace;
 
     public SteelFurnace(Properties properties) {
         super(properties);
@@ -40,13 +23,24 @@ public class SteelFurnace extends Machine implements IBlockRegistered {
 
     public SteelFurnace() {
         super();
-        steelFurnace=this;
-        this.setRegistryName(RandomStuff.MODID,"steel_furnace");
+        steelFurnace = this;
+        this.setRegistryName(RandomStuff.MODID, "steel_furnace");
 
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
     }
 
-/*    @Override
+    @Override
+    public boolean hasTileEntity(BlockState state) {
+        return true;
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
+        return new SteelFurnaceTileEntity();
+    }
+
+    /*    @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (!worldIn.isRemote){
             LootContext.Builder builder=new LootContext.Builder((ServerWorld) worldIn);

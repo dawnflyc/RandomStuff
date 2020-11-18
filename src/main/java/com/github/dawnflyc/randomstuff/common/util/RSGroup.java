@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class RSGroup extends ItemGroup {
 
-    public static final RSGroup INSTANCE=new RSGroup();
+    public static final RSGroup INSTANCE = new RSGroup();
 
     public RSGroup() {
         super("rs_group");
