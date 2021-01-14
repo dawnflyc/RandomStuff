@@ -12,9 +12,7 @@ import javax.annotation.Nullable;
 
 public class SteelFurnaceTileEntity extends MachineTileEntity implements ITileEntityRegistered {
 
-    public static final TileEntityType TILE_ENTITY_TYPE = TileEntityType.Builder.create(() -> {
-        return new SteelFurnaceTileEntity();
-    }, SteelFurnace.steelFurnace).build(null).setRegistryName(RandomStuff.MODID, "steel_furnace_tileentity");
+    public static final TileEntityType TILE_ENTITY_TYPE = TileEntityType.Builder.create(() -> new SteelFurnaceTileEntity(),SteelFurnace.steelFurnace).build(null).setRegistryName(RandomStuff.MODID, "steel_furnace_tileentity");
 
 
     public SteelFurnaceTileEntity() {
@@ -36,10 +34,12 @@ public class SteelFurnaceTileEntity extends MachineTileEntity implements ITileEn
     @Override
     public CompoundNBT getUpdateTag() {
         CompoundNBT compoundNBT = new CompoundNBT();
+        //这里将实体里面的属性转为nbt保存
         return compoundNBT;
     }
 
     @Override
     public void handleUpdateTag(CompoundNBT tag) {
+        //这里根据nbt还原属性
     }
 }

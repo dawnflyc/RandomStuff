@@ -1,4 +1,4 @@
-package com.github.dawnflyc.randomstuff.common.util;
+package com.github.dawnflyc.randomstuff.util;
 
 import com.github.dawnflyc.randomstuff.common.block.SteelFurnace;
 import net.minecraft.item.ItemGroup;

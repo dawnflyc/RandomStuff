@@ -1,22 +1,22 @@
 package com.github.dawnflyc.randomstuff.common.block;
 
-import com.github.dawnflyc.processtree.ITreeHandler;
+import com.github.dawnflyc.processtree.IScanResultHandler;
 import com.github.dawnflyc.processtree.Result;
-import com.github.dawnflyc.processtree.TreeScan;
-import com.github.dawnflyc.randomstuff.common.util.RSGroup;
+import com.github.dawnflyc.processtree.ScanNode;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import com.github.dawnflyc.randomstuff.util.RSGroup;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-@TreeScan(method = IBlockRegistered.class)
-public class BlockRegistry implements ITreeHandler<IBlockRegistered> {
+@ScanNode(target = IBlockRegistered.class)
+public class BlockRegistry implements IScanResultHandler<IBlockRegistered> {
 
     private static final Set<Block> REG_BLOCKS = new HashSet<>();
 

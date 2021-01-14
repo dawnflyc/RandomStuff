@@ -2,6 +2,7 @@ buildscript {
     repositories {
         maven { url = 'https://maven.aliyun.com/repository/central' }
         maven { url = 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url = 'http://lss233.littleservice.cn/repositories/minecraft' }
         maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
         mavenCentral()
@@ -59,6 +60,8 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
+            args '-nogui'
+
             mods {
                 randomstuff {
                     source sourceSets.main
@@ -94,7 +97,8 @@ dependencies {
 
     //kiwi
     //compile files("libs/Kiwi-1.15.2-2.8.3-deobf.jar")
-    compile fileTree(dir:'libs',includes:['*jar'])
+    //compile fileTree(dir:'libs',includes:['*jar'])
+    compile files("libs/ProcessTree_v${processTree_version}.jar")
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
@@ -131,7 +135,7 @@ jar {
     }
 
     from {
-        files("libs/ProcessTree.jar").collect{ it.isDirectory() ? it : zipTree(it) }
+        files("libs/ProcessTree_v${processTree_version}.jar").collect{ it.isDirectory() ? it : zipTree(it) }
     }
 }
 
